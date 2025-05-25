@@ -93,8 +93,8 @@
             bindings = <
 &trans     &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NON_US_BACKSLASH  &kp PIPE           &kp BACKSPACE
 &kp TILDE  &kp DOLLAR       &kp PERCENT   &kp CARET             &trans                 &trans      &trans  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON         &kp SQT            &kp ENTER
-&kp GRAVE  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &trans                 &trans      &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON             &kp DOUBLE_QUOTES  &kp DELETE
-&trans     &trans           &trans        &trans                &trans                 &trans      &trans  &trans                                                                                &trans
+&kp GRAVE  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &trans                 &trans      &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON             &kp DOUBLE_QUOTES  &kp RA(ENTER)
+&trans     &trans           &trans        &trans                &trans                 &trans      &trans  &trans                                                                                &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT>;
