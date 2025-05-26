@@ -6,7 +6,6 @@
 #define MOUSE 4
 #define SCROLL 5
 #define NUM 6
-
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
 &mt {
@@ -64,11 +63,13 @@
         };
 
         // 新しいスクロール動作の追加
+
         encoder_msc_down_up: encoder_msc_down_up {
             compatible = "zmk,behavior-sensor-rotate";
             label = "ENCODER_MSC_DOWN_UP";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+
             tap-ms = <20>;
         };
     };
@@ -78,10 +79,10 @@
 
         default_layer {
             bindings = <
-&kp Q               &kp W         &kp E         &kp R             &kp T                                    &kp Y          &kp U  &lt 5 I    &kp O    &lt 5 P
-&mt LEFT_CONTROL A  &kp S         &kp D         &kp F             &kp G        &kp ESC          &kp MINUS  &kp H          &kp J  &kp K      &kp L    &kp SEMI
-&mt LEFT_SHIFT Z    &kp X         &kp C         &kp V             &kp B        &kp TAB          &kp EQUAL  &kp N          &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
-&kp LCTRL           &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 LANGUAGE_2  &lt 2 SPACE  &lt 3 LANG1      &lt 6 RET  &kp BACKSPACE                             &kp DEL
+&kp Q               &kp W         &kp E         &kp R             &kp T                                        &kp Y      &kp U  &lt 5 I    &kp O    &lt 5 P
+&mt LEFT_CONTROL A  &kp S         &kp D         &kp F             &kp G        &kp ESC          &kp MINUS      &kp H      &kp J  &kp K      &kp L    &kp SEMI
+&mt LEFT_SHIFT Z    &kp X         &kp C         &kp V             &kp B        &kp TAB          &kp EQUAL      &kp N      &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
+&kp LCTRL           &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 LANGUAGE_2  &lt 2 SPACE  &lt 3 LANG1      &kp BACKSPACE  &lt 6 RET                             &kp DEL
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
