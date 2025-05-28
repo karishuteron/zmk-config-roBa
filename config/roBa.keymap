@@ -125,7 +125,7 @@
             bindings = <
 &trans  &trans    &kp LC(T)  &trans    &trans                         &trans           &trans    &trans    &trans    &trans
 &trans  &mkp MB1  &mkp MB3   &mkp MB2  &trans  &trans      &kp RC(V)  &kp RC(RS(TAB))  &mkp MB1  &mkp MB3  &mkp MB2  &kp RC(TAB)
-&trans  &mkp MB4  &kp LC(W)  &mkp MB5  &trans  &trans      &kp RC(C)  &trans           &trans    &trans    &trans    &trans
+&trans  &mkp MB4  &kp LC(W)  &mkp MB5  &trans  &trans      &kp RC(C)  &none            &none     &none     &none     &trans
 &trans  &trans    &trans     &trans    &trans  &trans      &trans     &trans                                         &trans
             >;
         };
