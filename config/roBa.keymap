@@ -9,9 +9,9 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
 &mt {
-    flavor = "balanced";
-    quick-tap-ms = <0>;
-    tapping-term-ms = <400>;
+    flavor = "tap-preferred";   // タップ優先に変更（高速入力向き）
+    quick-tap-ms = <150>;       // クイックタップ有効化（反応速度向上）
+    tapping-term-ms = <350>;    // 既存のまま（ホールド挙動に影響させない）
 };
 
 / {
