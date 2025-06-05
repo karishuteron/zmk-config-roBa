@@ -102,20 +102,6 @@
 
             tap-ms = <20>;
         };
-
-        mt_ctrl_a: mt_ctrl_a {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MT_CTRL_A";
-            bindings = <&kp A>, <&kp LEFT_CONTROL>;
-            tapping-term-ms = <200>;
-        };
-
-        lt_layer5_i: lt_layer5_i {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LT_LAYER5_I";
-            bindings = <&mo 5>, <&kp I>;
-            tapping-term-ms = <200>;
-        };
     };
 
     keymap {
@@ -123,7 +109,7 @@
 
         default_layer {
             bindings = <
-&mt_ctrl_a          &kp S         &kp D         &kp F             &kp G      &kp ESC               &kp MINUS      &kp H        &lt_layer5_i  &kp O    &lt 5 P
+&kp Q               &kp W         &kp E         &kp R             &kp T                                           &kp Y        &kp U  &lt 5 I    &kp O    &lt 5 P
 &mt LEFT_CONTROL A  &kp S         &kp D         &kp F             &kp G      &kp ESC               &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp ENTER
 &mt LEFT_SHIFT Z    &kp X         &kp C         &kp V             &kp B      &kp ESCAPE            &kp EQUAL      &kp N        &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
 &kp LCTRL           &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 LANGUAGE_2  &lt 2 TAB  &lt 3 LANGUAGE_1      &kp BACKSPACE  &lt 6 SPACE                             &kp DEL
