@@ -76,6 +76,7 @@
         toggle_auto_mouse_layer: toggle_auto_mouse_layer {
             compatible = "zmk,behavior-macro";
             label = "TOGGLE_AUTO_MOUSE_LAYER";
+            #binding-cells = <0>;
             bindings = <
                 &mo 4
             >;
