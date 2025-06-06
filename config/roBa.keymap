@@ -12,12 +12,14 @@
     flavor = "tap-preferred";
     quick-tap-ms = <180>;
     tapping-term-ms = <220>;
+    retro-tap;
 };
 
 &lt {
     flavor = "tap-preferred";
     quick-tap-ms = <180>;
     tapping-term-ms = <220>;
+    retro-tap;
 };
 
 / {
@@ -85,6 +87,7 @@
         };
 
         // 新しいスクロール動作の追加
+
         encoder_msc_down_up: encoder_msc_down_up {
             compatible = "zmk,behavior-sensor-rotate";
             label = "ENCODER_MSC_DOWN_UP";
@@ -145,8 +148,8 @@
         MOUSE {
             bindings = <
 &trans  &trans    &kp LC(T)  &trans    &trans                         &none            &none     &none     &none     &none
-&trans  &mkp MB1  &mkp MB3   &mkp MB2  &trans  &trans      &kp RC(V)  &kp RC(RS(TAB))  &mkp MB1  &mkp MB3  &mkp MB2  &trans
-&trans  &mkp MB4  &kp LC(W)  &mkp MB5  &trans  &trans      &kp RC(C)  &none            &none     &none     &none     &none
+&trans  &mkp MB1  &mkp MB3   &mkp MB2  &trans  &trans      &kp RC(C)  &kp RC(RS(TAB))  &mkp MB1  &mkp MB3  &mkp MB2  &trans
+&trans  &mkp MB4  &kp LC(W)  &mkp MB5  &trans  &trans      &kp RC(V)  &none            &none     &none     &none     &none
 &trans  &trans    &trans     &trans    &trans  &trans      &trans     &none                                          &none
             >;
         };
