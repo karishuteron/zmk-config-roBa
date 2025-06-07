@@ -6,6 +6,7 @@
 #define MOUSE 4
 #define SCROLL 5
 #define NUM 6
+#undef ZMK_POINTING_DEFAULT_SCRL_VAL
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
 &mt {
@@ -115,7 +116,6 @@
 &kp LCTRL           &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 LANGUAGE_2  &lt 2 TAB  &lt 3 LANGUAGE_1      &kp BACKSPACE  &lt 6 SPACE                             &kp DEL
             >;
 
-            behavior-hints = <&tap_block_mouse_layer>;
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
