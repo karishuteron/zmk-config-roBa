@@ -6,13 +6,15 @@
 #define MOUSE 4
 #define SCROLL 5
 #define NUM 6
+
 #undef ZMK_POINTING_DEFAULT_SCRL_VAL
+
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
 &mt {
     flavor = "tap-preferred";
     quick-tap-ms = <180>;
-    tapping-term-ms = <220>;
+    tapping-term-ms = <300>;
     retro-tap;
 };
 
