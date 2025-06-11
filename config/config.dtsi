@@ -1,6 +1,6 @@
 / {
     zmk-config {
-        debounce-press-ms = <5>;
-        debounce-release-ms = <5>;
+        debounce-press-ms = <15>;
+        debounce-release-ms = <15>;
     };
 };
