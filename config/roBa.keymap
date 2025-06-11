@@ -14,14 +14,20 @@
 &mt {
     flavor = "hold-preferred";
     tapping-term-ms = <300>;
+    quick-tap-ms = <250>;
 };
 
 &lt {
     flavor = "hold-preferred";
     tapping-term-ms = <300>;
+    quick-tap-ms = <250>;
 };
 
-/ {
+/
+{
+    behavior-flags {
+        global-quick-tap-ms = <250>;
+    };
     combos {
         compatible = "zmk,combos";
 
