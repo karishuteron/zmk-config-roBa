@@ -13,14 +13,14 @@
 
 &mt {
     flavor = "hold-preferred";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <250>;
+    tapping-term-ms = <400>;
+    // quick-tap-ms = <250>;  // ← 無効化または後で調整
 };
 
 &lt {
     flavor = "hold-preferred";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <250>;
+    tapping-term-ms = <400>;
+    // quick-tap-ms = <250>;
 };
 
 / {
