@@ -12,17 +12,15 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
 &mt {
-    flavor = "hold-preferred";
+    flavor = "tap-preferred";
     tapping-term-ms = <300>;
-
-    // quick-tap-ms = <250>;  // ← 無効化または後で調整
+    quick-tap-ms = <200>; // もしくは <250>
 };
 
 &lt {
-    flavor = "hold-preferred";
+    flavor = "tap-preferred";
     tapping-term-ms = <300>;
-
-    // quick-tap-ms = <250>;
+    quick-tap-ms = <200>; // もしくは <250>
 };
 
 / {
