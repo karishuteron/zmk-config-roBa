@@ -124,8 +124,8 @@
         SYMBOLS {
             bindings = <
 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                             &kp NUMBER_6  &kp N7             &kp NUMBER_8      &kp NUMBER_9       &kp NUMBER_0
-&none         &none         &none         &none         &none   &kp ESC         &kp RC(C)  &kp MINUS     &kp DOUBLE_QUOTES  &kp PIPE          &kp AT_SIGN        &kp SEMICOLON
-&none         &none         &none         &none         &none   &kp ESCAPE      &kp RC(V)  &kp PLUS      &none              &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp GRAVE
+&none         &none         &none         &none         &none   &kp ESC         &kp RC(C)  &kp MINUS     &kp DOUBLE_QUOTES  &kp BACKSLASH     &kp AT_SIGN        &kp SEMICOLON
+&none         &none         &none         &none         &none   &kp ESCAPE      &kp RC(V)  &kp EQUAL     &none              &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp GRAVE
 &trans        &trans        &trans        &trans        &trans  &trans          &trans     &trans                                                                &kp DEL
             >;
 
@@ -145,8 +145,8 @@
 
         NUM {
             bindings = <
-&none   &none   &none   &none   &none                          &kp MINUS  &kp N7        &kp N8        &kp N9        &kp SLASH
-&none   &none   &none   &none   &none   &trans      &kp MINUS  &kp EQUAL  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp COLON
+&none   &none   &none   &none   &none                          &kp PLUS   &kp N7        &kp N8        &kp N9        &kp SLASH
+&none   &none   &none   &none   &none   &trans      &kp MINUS  &kp ASTRK  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp COLON
 &none   &none   &none   &none   &none   &trans      &kp EQUAL  &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD
 &trans  &trans  &trans  &trans  &trans  &trans      &trans     &trans                                               &trans
             >;
