@@ -104,7 +104,6 @@
             compatible = "zmk,behavior-tap-block";
             label = "TAP_BLOCK_MOUSE";
             timeout-ms = <250>;
-            #sensor-binding-cells = <0>;
         };
     };
 
@@ -118,7 +117,7 @@
 &mt LEFT_SHIFT Z    &kp X         &kp C         &kp V             &kp B      &lt 4 ESCAPE          &kp EQUAL      &kp N        &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
 &kp LCTRL           &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 LANGUAGE_2  &lt 2 TAB  &lt 3 LANGUAGE_1      &kp BACKSPACE  &lt 6 SPACE                             &kp DEL
             >;
-
+            behavior-hints = <&tap_block_mouse_layer>;
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
