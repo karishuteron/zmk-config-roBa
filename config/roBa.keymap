@@ -104,6 +104,7 @@
             compatible = "zmk,behavior-tap-block";
             label = "TAP_BLOCK_MOUSE";
             timeout-ms = <250>;
+            #sensor-binding-cells = <0>;
         };
     };
 
