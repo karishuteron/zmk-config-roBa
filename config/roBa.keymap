@@ -13,14 +13,14 @@
 
 &mt {
     flavor = "tap-preferred";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <200>; // もしくは <250>
+    tapping-term-ms = <200>;
+    quick-tap-ms = <180>; // もしくは <250>
 };
 
 &lt {
     flavor = "tap-preferred";
-    tapping-term-ms = <300>;
-    quick-tap-ms = <200>; // もしくは <250>
+    tapping-term-ms = <250>;
+    quick-tap-ms = <180>; // もしくは <250>
 };
 
 / {
@@ -97,7 +97,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
-            tap-ms = <20>;
+            tap-ms = <18>;
         };
 
         tap_block_mouse_layer: tap_block_mouse_layer {
