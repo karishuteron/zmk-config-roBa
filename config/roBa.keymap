@@ -73,7 +73,7 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&sl 4>;
+                <&sl 4>;    
 
             label = "MKP_EXIT_AML";
         };
@@ -97,7 +97,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
-            tap-ms = <15>;
+            tap-ms = <18>;
         };
 
         tap_block_mouse_layer: tap_block_mouse_layer {
