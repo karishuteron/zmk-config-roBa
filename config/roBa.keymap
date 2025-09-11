@@ -13,14 +13,14 @@
 
 &mt {
     flavor = "tap-preferred";
-    tapping-term-ms = <180>;
-    quick-tap-ms = <250>; // もしくは <250>
+    tapping-term-ms = <200>;
+    quick-tap-ms = <180>; 
 };
 
 &lt {
     flavor = "tap-preferred";
     tapping-term-ms = <250>;
-    quick-tap-ms = <180>; // もしくは <250>
+    quick-tap-ms = <180>; 
 };
 
 / {
@@ -94,10 +94,10 @@
         encoder_msc_down_up: encoder_msc_down_up {
             compatible = "zmk,behavior-sensor-rotate";
             label = "ENCODER_MSC_DOWN_UP";
-            #binding-cells = <1>;
+            #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
-            tap-ms = <10>;
+            tap-ms = <18>;
         };
 
         tap_block_mouse_layer: tap_block_mouse_layer {
@@ -123,10 +123,10 @@
 
         SYMBOLS {
             bindings = <
-&kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp LS(N5)                             &kp LS(NUMBER_6)  &kp LS(N7)        &kp LS(NUMBER_8)  &kp LS(NUMBER_9)   &kp LS(NUMBER_0)
-&none             &none             &none             &none             &none       &kp ESC         &kp RC(C)  &kp MINUS         &kp GRAVE         &kp SLASH         &kp AT_SIGN        &kp SEMICOLON
-&none             &none             &none             &none             &none       &kp ESCAPE      &kp RC(V)  &kp EQUAL         &kp SINGLE_QUOTE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp NON_US_BACKSLASH
-&trans            &trans            &trans            &trans            &trans      &trans          &trans     &trans                                                                   &kp DEL
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                             &kp NUMBER_6  &kp N7             &kp NUMBER_8      &kp NUMBER_9       &kp NUMBER_0
+&none         &none         &none         &none         &none   &kp ESC         &kp RC(C)  &kp MINUS     &kp DOUBLE_QUOTES  &kp BACKSLASH     &kp AT_SIGN        &kp SEMICOLON
+&none         &none         &none         &none         &none   &kp ESCAPE      &kp RC(V)  &kp EQUAL     &none              &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp GRAVE
+&trans        &trans        &trans        &trans        &trans  &trans          &trans     &trans                                                                &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT>;
