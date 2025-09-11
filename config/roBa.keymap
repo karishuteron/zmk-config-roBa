@@ -94,10 +94,10 @@
         encoder_msc_down_up: encoder_msc_down_up {
             compatible = "zmk,behavior-sensor-rotate";
             label = "ENCODER_MSC_DOWN_UP";
-            #sensor-binding-cells = <0>;
+            #binding-cells = <1>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
-            tap-ms = <15>;
+            tap-ms = <10>;
         };
 
         tap_block_mouse_layer: tap_block_mouse_layer {
