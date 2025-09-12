@@ -97,7 +97,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
-            tap-ms = <5>;
+            tap-ms = <18>;
         };
 
         tap_block_mouse_layer: tap_block_mouse_layer {
