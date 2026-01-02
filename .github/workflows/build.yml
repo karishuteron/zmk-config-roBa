@@ -1,5 +1,41 @@
+name: Build ZMK (roBa on XIAO BLE)
+
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shield: [roBa_L, roBa_R]
+
+    steps:
+      - name: Checkout config repo
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install west
+
+      - name: West init (using this config repo)
+        run: |
+          west init -l config
+          west update
+          west zephyr-export
+          pip install -r zephyr/scripts/requirements.txt
+
+      - name: Build firmware
+        run: |
+          west build -s zmk/app -b xiao_ble -- -DSHIELD=${{ matrix.shield }}
+
+      - name: Copy artifacts
+        run: |
+          cp build/zephyr/zmk.uf2 xiao_ble_${{ matrix.shield }}.uf2
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zmk-${{ matrix.shield }}-xiao_ble
+          path: xiao_ble_${{ matrix.shield }}.uf2
