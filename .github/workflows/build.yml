@@ -89,7 +89,6 @@ jobs:
           west build -v -s zmk/app -b xiao_ble -- \
             -DZMK_CONFIG=${{ github.workspace }}/config \
             -DSHIELD=${{ matrix.shield }} \
-            -DZMK_EXTRA_MODULES=${{ github.workspace }}
 
       - name: Copy artifacts
         run: |
