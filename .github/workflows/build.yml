@@ -30,34 +30,50 @@ jobs:
           echo "--- config/west.yml ---"
           sed -n '1,200p' config/west.yml
 
-      - name: West init (using this config repo)
+      - name: Prepare west workspace
         run: |
-          west init -l config
+          rm -rf west-workspace
+          mkdir -p west-workspace
+
+      - name: West init (using this config repo)
+        working-directory: west-workspace
+        run: |
+          west init -l ../config
+          west topdir
+          ls -la .west
 
       - name: West update (verbose)
+        working-directory: west-workspace
         env:
           GIT_TERMINAL_PROMPT: "0"
         run: |
           west update -v
 
       - name: Resolve manifest (debug)
+        working-directory: west-workspace
         run: |
-          west manifest --resolve > resolved-manifest-${{ matrix.shield }}.yml
+          west -vv manifest --validate
+          west manifest --resolve > ../resolved-manifest-${{ matrix.shield }}.yml
           echo "--- resolved-manifest.yml (head) ---"
-          sed -n '1,120p' resolved-manifest-${{ matrix.shield }}.yml
+          sed -n '1,120p' ../resolved-manifest-${{ matrix.shield }}.yml
 
       - name: Export Zephyr and install python requirements
+        working-directory: west-workspace
         run: |
           west zephyr-export
           pip install -r zephyr/scripts/requirements.txt
 
       - name: Build firmware
+        working-directory: west-workspace
         run: |
-          west build -v -s zmk/app -b xiao_ble -- -DSHIELD=${{ matrix.shield }}
+          west build -v -s zmk/app -b xiao_ble -- \
+            -DZMK_CONFIG=${{ github.workspace }}/config \
+            -DSHIELD=${{ matrix.shield }} \
+            -DZMK_EXTRA_MODULES=${{ github.workspace }}
 
       - name: Copy artifacts
         run: |
-          cp build/zephyr/zmk.uf2 xiao_ble_${{ matrix.shield }}.uf2
+          cp west-workspace/build/zephyr/zmk.uf2 xiao_ble_${{ matrix.shield }}.uf2
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
