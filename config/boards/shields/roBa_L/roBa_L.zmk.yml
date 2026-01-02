@@ -1,0 +1,8 @@
+file_format: "1"
+id: roBa_L
+name: roBa_L
+type: shield
+requires:
+  - xiao_ble
+features:
+  - keys
