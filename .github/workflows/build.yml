@@ -31,25 +31,28 @@ jobs:
           if [ -f west.yml ]; then sed -n '1,200p' west.yml; else echo "(none)"; fi
           echo "--- config/west.yml ---"
           if [ -f config/west.yml ]; then sed -n '1,200p' config/west.yml; else echo "(none)"; fi
+          echo "--- config/west.yml exists? ---"
+          ls -la config/west.yml
 
       - name: Prepare west workspace
         run: |
           rm -rf west-workspace
           mkdir -p west-workspace
 
+      # 重要: -d で workspace の場所を明示して固定する
       - name: West init (using this config repo)
-        working-directory: west-workspace
         run: |
           echo "--- verify manifest path ---"
-          ls -la ../config
-          ls -la ../config/west.yml
-          west init -l ../config
-          west topdir
-          ls -la .west
+          ls -la config
+          ls -la config/west.yml
+          west init -l config -d west-workspace
+          echo "--- west topdir (should be west-workspace) ---"
+          (cd west-workspace && west topdir)
+          ls -la west-workspace/.west || true
           echo "--- manifest location ---"
-          ls -la .west/manifest || true
+          ls -la west-workspace/.west/manifest || true
           echo "--- local manifest (config/west.yml) ---"
-          sed -n '1,200p' ../config/west.yml
+          sed -n '1,200p' config/west.yml
 
       - name: West update (verbose)
         working-directory: west-workspace
@@ -96,4 +99,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: resolved-manifest-${{ matrix.shield }}
-          path: resolved-manifest-${{ matrix.shield }}.ymlｊ
+          path: resolved-manifest-${{ matrix.shield }}.yml
