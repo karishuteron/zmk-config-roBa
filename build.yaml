@@ -16,12 +16,15 @@
 #     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
 #     artifact-name: corne_left_with_logging
 #
----
+# build.yaml
+# ZMK GitHub Actions build matrix for roBa (XIAO BLE)
+# Board name for Zephyr 4.x: xiao_ble
+
 include:
- - board: seeeduino_xiao_ble
-   shield: roBa_R
-   snippet: studio-rpc-usb-uart
- - board: seeeduino_xiao_ble
-   shield: roBa_L
- - board: seeeduino_xiao_ble
-   shield: settings_reset
+  - board: xiao_ble
+    shield: roBa_L
+    snippet: studio-rpc-usb-uart
+
+  - board: xiao_ble
+    shield: roBa_R
+    snippet: studio-rpc-usb-uart
