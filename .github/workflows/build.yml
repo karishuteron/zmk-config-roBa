@@ -1,3 +1,5 @@
+# No file named `config/west.yml` or `west.yml` was provided for editing.  
+# Please provide the content of the file `config/west.yml` or `west.yml` to apply the requested changes.
 name: Build ZMK (roBa on XIAO BLE)
 
 on: [push, pull_request, workflow_dispatch]
@@ -19,10 +21,29 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install west
 
+      - name: Show west manifest (as checked in)
+        run: |
+          echo "--- config/west.yml ---"
+          sed -n '1,200p' config/west.yml
+
       - name: West init (using this config repo)
         run: |
           west init -l config
-          west update
+
+      - name: Resolve manifest (debug)
+        run: |
+          west manifest --resolve > resolved-manifest.yml
+          echo "--- resolved-manifest.yml (head) ---"
+          sed -n '1,120p' resolved-manifest.yml
+
+      - name: West update (verbose)
+        env:
+          GIT_TERMINAL_PROMPT: "0"
+        run: |
+          west update -v
+
+      - name: Export Zephyr and install python requirements
+        run: |
           west zephyr-export
           pip install -r zephyr/scripts/requirements.txt
 
@@ -39,3 +60,10 @@ jobs:
         with:
           name: zmk-${{ matrix.shield }}-xiao_ble
           path: xiao_ble_${{ matrix.shield }}.uf2
+
+      - name: Upload resolved manifest (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resolved-manifest
+          path: resolved-manifest.yml
