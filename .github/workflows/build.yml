@@ -27,8 +27,12 @@ jobs:
 
       - name: Show west manifest (as checked in)
         run: |
+          echo "--- west.yml (repo root) ---"
+          if [ -f west.yml ]; then sed -n '1,200p' west.yml; else echo "(none)"; fi
           echo "--- config/west.yml ---"
-          sed -n '1,200p' config/west.yml
+          if [ -f config/west.yml ]; then sed -n '1,200p' config/west.yml; else echo "(none)"; fi
+          echo "--- config/config/west.yml ---"
+          if [ -f config/config/west.yml ]; then sed -n '1,200p' config/config/west.yml; else echo "(none)"; fi
 
       - name: Prepare west workspace
         run: |
@@ -38,9 +42,13 @@ jobs:
       - name: West init (using this config repo)
         working-directory: west-workspace
         run: |
-          west init -l ../config
+          west init -l ../config/config
           west topdir
           ls -la .west
+          echo "--- manifest location ---"
+          ls -la .west/manifest || true
+          echo "--- local manifest (config/config/west.yml) ---"
+          sed -n '1,200p' ../config/config/west.yml
 
       - name: West update (verbose)
         working-directory: west-workspace
@@ -52,7 +60,8 @@ jobs:
       - name: Resolve manifest (debug)
         working-directory: west-workspace
         run: |
-          west -vv manifest --validate
+          west -vv manifest --validate || true
+          west -vv manifest --show-toplevel || true
           west manifest --resolve > ../resolved-manifest-${{ matrix.shield }}.yml
           echo "--- resolved-manifest.yml (head) ---"
           sed -n '1,120p' ../resolved-manifest-${{ matrix.shield }}.yml
