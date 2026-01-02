@@ -42,7 +42,6 @@ jobs:
       - name: Prepare west workspace
         run: |
           rm -rf west-workspace
-          mkdir -p west-workspace
 
       - name: West init (using this config repo)
         run: |
@@ -51,7 +50,7 @@ jobs:
           ls -la config/west.yml
 
           # Initialize west workspace explicitly under west-workspace
-          west init -l config -d west-workspace
+          west init -l config west-workspace
 
           echo "--- west topdir (must be west-workspace) ---"
           cd west-workspace
