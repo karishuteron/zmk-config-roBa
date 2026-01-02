@@ -1,15 +1,28 @@
-manifest:
-  remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: zmkfork
-      url-base: https://github.com/karishuteron
-    - name: kumamuk-git
-      url-base: https://github.com/kumamuk-git
-  projects:
-    - name: zmk
-      remote: zmkfork
-      revision: main
-      import: app/west.yml
-  self:
-    path: config
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Prepare west workspace
+        run: |
+          rm -rf west-workspace
+
+      - name: West init (using this config repo)
+        run: |
+          west init -l config west-workspace
+          west update
+
+      - name: Build firmware
+        run: |
+          west build -d build -b nice_nano_v2 app
