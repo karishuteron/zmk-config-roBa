@@ -1,5 +1,3 @@
-# No file named `config/west.yml` or `west.yml` was provided for editing.  
-# Please provide the content of the file `config/west.yml` or `west.yml` to apply the requested changes.
 name: Build ZMK (roBa on XIAO BLE)
 
 on: [push, pull_request, workflow_dispatch]
@@ -15,6 +13,12 @@ jobs:
     steps:
       - name: Checkout config repo
         uses: actions/checkout@v4
+
+      - name: Workflow marker
+        run: |
+          echo "MARKER: custom-xiao-ble-workflow-v2"
+          echo "GITHUB_SHA=$GITHUB_SHA"
+          echo "GITHUB_REF=$GITHUB_REF"
 
       - name: Install dependencies
         run: |
@@ -49,7 +53,7 @@ jobs:
 
       - name: Build firmware
         run: |
-          west build -s zmk/app -b xiao_ble -- -DSHIELD=${{ matrix.shield }}
+          west build -v -s zmk/app -b xiao_ble -- -DSHIELD=${{ matrix.shield }}
 
       - name: Copy artifacts
         run: |
