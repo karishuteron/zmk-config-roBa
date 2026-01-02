@@ -1,5 +1,13 @@
 #include "roBa.dtsi"
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/input_transform.h>
+
+#define ROBA_TB_ROT_0 0
+#define ROBA_TB_ROT_90 (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
+#define ROBA_TB_ROT_180 (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
+#define ROBA_TB_ROT_270 (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
+
+#define ROBA_TB_TRANSFORM ROBA_TB_ROT_0
 
 &default_transform {
     col-offset = <6>;
@@ -19,8 +27,16 @@
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&auto_mouse_layer 4 700>;
+        input-processors = <&trackball_xy_transform ROBA_TB_TRANSFORM &auto_mouse_layer 4 700>;
 
+    };
+
+    trackball_xy_transform: trackball_xy_transform {
+        compatible = "zmk,input-processor-transform";
+        #input-processor-cells = <1>;
+        type = <INPUT_EV_REL>;
+        y-codes = <INPUT_REL_Y>;
+        x-codes = <INPUT_REL_X>;
     };
 
     auto_mouse_layer: auto_mouse_layer {
@@ -67,9 +83,6 @@
         zephyr,axis-x = <INPUT_REL_X>;
         zephyr,axis-y = <INPUT_REL_Y>;
         res-cpi = <400>;
-        invert-x;
-        invert-y;
         smart-mode;
     };
 };
-
