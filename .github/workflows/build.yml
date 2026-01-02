@@ -16,9 +16,14 @@ jobs:
 
       - name: Workflow marker
         run: |
-          echo "MARKER: custom-xiao-ble-workflow-v2"
+          echo "MARKER: custom-xiao-ble-workflow-v3"
           echo "GITHUB_SHA=$GITHUB_SHA"
           echo "GITHUB_REF=$GITHUB_REF"
+
+      - name: Show build.yml used in this run (debug)
+        run: |
+          echo "--- .github/workflows/build.yml ---"
+          sed -n '1,200p' .github/workflows/build.yml
 
       - name: Install dependencies
         run: |
