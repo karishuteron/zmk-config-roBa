@@ -39,20 +39,27 @@ jobs:
           rm -rf west-workspace
           mkdir -p west-workspace
 
-      # 重要: -d で workspace の場所を明示して固定する
       - name: West init (using this config repo)
         run: |
           echo "--- verify manifest path ---"
           ls -la config
           ls -la config/west.yml
+
+          # Initialize west workspace explicitly under west-workspace
           west init -l config -d west-workspace
-          echo "--- west topdir (should be west-workspace) ---"
-          (cd west-workspace && west topdir)
-          ls -la west-workspace/.west || true
+
+          echo "--- west topdir (must be west-workspace) ---"
+          cd west-workspace
+          west topdir
+
+          echo "--- .west directory ---"
+          ls -la .west
+
           echo "--- manifest location ---"
-          ls -la west-workspace/.west/manifest || true
+          ls -la .west/manifest
+
           echo "--- local manifest (config/west.yml) ---"
-          sed -n '1,200p' config/west.yml
+          sed -n '1,200p' ../config/west.yml
 
       - name: West update (verbose)
         working-directory: west-workspace
