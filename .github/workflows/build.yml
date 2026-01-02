@@ -34,17 +34,17 @@ jobs:
         run: |
           west init -l config
 
-      - name: Resolve manifest (debug)
-        run: |
-          west manifest --resolve > resolved-manifest.yml
-          echo "--- resolved-manifest.yml (head) ---"
-          sed -n '1,120p' resolved-manifest.yml
-
       - name: West update (verbose)
         env:
           GIT_TERMINAL_PROMPT: "0"
         run: |
           west update -v
+
+      - name: Resolve manifest (debug)
+        run: |
+          west manifest --resolve > resolved-manifest-${{ matrix.shield }}.yml
+          echo "--- resolved-manifest.yml (head) ---"
+          sed -n '1,120p' resolved-manifest-${{ matrix.shield }}.yml
 
       - name: Export Zephyr and install python requirements
         run: |
@@ -69,5 +69,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: resolved-manifest
-          path: resolved-manifest.yml
+          name: resolved-manifest-${{ matrix.shield }}
+          path: resolved-manifest-${{ matrix.shield }}.yml
