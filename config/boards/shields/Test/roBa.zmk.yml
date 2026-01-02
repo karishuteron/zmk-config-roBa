@@ -6,4 +6,4 @@ url: https://github.com/kumamuk-git/zmk-config-roBa
 requires:
   - xiao_ble
 features:
-  - keysｊ
+  - keys
