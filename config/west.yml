@@ -2,10 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: badjeff
+      url-base: https://github.com/badjeff
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: zmk-input-processor-report-rate-limit
+      remote: badjeff
+      revision: b056cb135525933743e2627150fb390f9d4b2461
   self:
     path: config
