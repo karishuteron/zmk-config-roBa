@@ -27,7 +27,7 @@
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&trackball_xy_transform ROBA_TB_TRANSFORM &auto_mouse_layer 4 350>;
+        input-processors = <&trackball_xy_transform ROBA_TB_TRANSFORM &auto_mouse_layer 4 500>;
 
     };
 
@@ -83,6 +83,5 @@
         zephyr,axis-x = <INPUT_REL_X>;
         zephyr,axis-y = <INPUT_REL_Y>;
         res-cpi = <400>;
-        smart-mode;
     };
 };
