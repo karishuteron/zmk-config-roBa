@@ -82,9 +82,9 @@
 
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <160>;
-            quick-tap-ms = <140>;
-            require-prior-idle-ms = <120>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <160>;
+            require-prior-idle-ms = <150>;
         };
 
         lt_to_layer_0: lt_to_layer_0 {
