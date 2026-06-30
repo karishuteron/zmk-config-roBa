@@ -86,6 +86,7 @@
             tapping-term-ms = <150>;
             quick-tap-ms = <120>;
             require-prior-idle-ms = <100>;
+            retro-tap;
         };
 
         lt_to_layer_0: lt_to_layer_0 {
