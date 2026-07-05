@@ -22,6 +22,7 @@
     flavor = "tap-preferred";
     tapping-term-ms = <180>;
     quick-tap-ms = <140>;
+    retro-tap;
 };
 
 / {
