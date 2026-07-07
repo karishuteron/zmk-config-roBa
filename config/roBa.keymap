@@ -15,6 +15,7 @@
     flavor = "tap-preferred";
     tapping-term-ms = <150>;
     quick-tap-ms = <120>;
+    require-prior-idle-ms = <120>;
     retro-tap;
 };
 
@@ -22,6 +23,7 @@
     flavor = "tap-preferred";
     tapping-term-ms = <180>;
     quick-tap-ms = <140>;
+    require-prior-idle-ms = <120>;
     retro-tap;
 };
 
