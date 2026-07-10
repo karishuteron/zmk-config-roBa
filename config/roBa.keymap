@@ -30,7 +30,7 @@
 
     combos {
         compatible = "zmk,combos";
-        timeout-ms = <20>;
+        timeout-ms = <24>;
 
         tab {
             bindings = <&kp TAB>;
