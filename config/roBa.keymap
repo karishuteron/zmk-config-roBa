@@ -116,6 +116,12 @@
             label = "TAP_BLOCK_MOUSE";
             timeout-ms = <250>;
         };
+
+        pmw3610_cpi: pmw3610_cpi {
+            compatible = "zmk,behavior-pmw3610-cpi";
+            label = "PMW3610_CPI";
+            #binding-cells = <1>;
+        };
     };
 
     keymap {
@@ -176,7 +182,7 @@
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
+&pmw3610_cpi 200  &pmw3610_cpi -200  &pmw3610_cpi 0  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
