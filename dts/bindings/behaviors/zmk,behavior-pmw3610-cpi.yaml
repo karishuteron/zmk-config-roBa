@@ -1,3 +1,0 @@
-description: PMW3610 CPI adjustment behavior
-compatible: "zmk,behavior-pmw3610-cpi"
-include: one_param.yaml
