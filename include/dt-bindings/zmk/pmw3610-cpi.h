@@ -1,0 +1,5 @@
+#pragma once
+
+#define PMW3610_CPI_RESET 0
+#define PMW3610_CPI_INCREASE 1
+#define PMW3610_CPI_DECREASE 2

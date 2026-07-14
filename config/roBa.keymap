@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pmw3610-cpi.h>
 #include <dt-bindings/zmk/pointing.h>
 
 #define MOUSE 4
@@ -58,7 +59,6 @@
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "TO_LAYER_0";
         };
 
         mkp_exit_AML: mkp_exit_AML {
@@ -72,15 +72,12 @@
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
                 <&sl 4>;
-
-            label = "MKP_EXIT_AML";
         };
     };
 
     behaviors {
         a_mt: a_mt {
             compatible = "zmk,behavior-hold-tap";
-            label = "A_MOD_TAP";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -93,7 +90,6 @@
 
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
 
             #binding-cells = <2>;
@@ -104,7 +100,6 @@
 
         encoder_msc_down_up: encoder_msc_down_up {
             compatible = "zmk,behavior-sensor-rotate";
-            label = "ENCODER_MSC_DOWN_UP";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
@@ -113,13 +108,11 @@
 
         tap_block_mouse_layer: tap_block_mouse_layer {
             compatible = "zmk,behavior-tap-block";
-            label = "TAP_BLOCK_MOUSE";
             timeout-ms = <250>;
         };
 
         pmw3610_cpi: pmw3610_cpi {
             compatible = "zmk,behavior-pmw3610-cpi";
-            label = "PMW3610_CPI";
             #binding-cells = <1>;
         };
     };
@@ -182,7 +175,7 @@
 
         SCROLL {
             bindings = <
-&pmw3610_cpi 200  &pmw3610_cpi -200  &pmw3610_cpi 0  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
+&pmw3610_cpi PMW3610_CPI_INCREASE  &pmw3610_cpi PMW3610_CPI_DECREASE  &pmw3610_cpi PMW3610_CPI_RESET  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
