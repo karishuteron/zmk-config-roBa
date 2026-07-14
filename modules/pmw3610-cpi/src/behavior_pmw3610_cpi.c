@@ -1,3 +1,5 @@
+#define DT_DRV_COMPAT zmk_behavior_pmw3610_cpi
+
 #include <errno.h>
 
 #include <zephyr/device.h>
@@ -6,8 +8,6 @@
 #include <zephyr/sys/util.h>
 
 #include <zmk/behavior.h>
-
-#define DT_DRV_COMPAT zmk_behavior_pmw3610_cpi
 
 #if DT_HAS_COMPAT_STATUS_OKAY(pixart_pmw3610)
 

@@ -1,3 +1,3 @@
-if(CONFIG_SHIELD_ROBA_R OR CONFIG_SHIELD_ROBA_L)
+if((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
   target_sources(app PRIVATE src/behavior_pmw3610_cpi.c)
 endif()
